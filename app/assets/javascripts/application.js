@@ -26,8 +26,17 @@ window.onload = hideLast;
 
 function hideMe(element){
   alert("Ive Been Clicked!");
-  console.log(element);
-  element.parentElement.parentElement.style.display = "none";
+  // console.log(element);
+  var row = element.parentElement.parentElement.parentElement;
+  row.style.display = "none";
+  var span = element.parentElement;
+  console.log(span);
+
+  var destroy = span.lastElementChild;
+  console.log(destroy);
+  destroy.checked = true;
+
+
 
 }
 
