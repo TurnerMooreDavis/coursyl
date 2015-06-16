@@ -18,22 +18,31 @@
 function hideLast(){
   var containers = document.getElementsByClassName("association container");
   var lastContainer = containers[containers.length-1];
-  var lastRow = lastContainer.lastElementChild;
-  lastRow.style.display = "none";
+  lastContainer.style.display = "none";
   console.log(containers);
   console.log(lastContainer);
-  console.log(lastRow);
 }
 window.onload = hideLast;
 
+function hideMe(element){
+  alert("Ive Been Clicked!");
+  console.log(element);
+  element.parentElement.parentElement.style.display = "none";
+
+}
 
 function disableButton(){
-  document.getElementById("update_button").disabled = true;
+  button = document.getElementById("update_button");
+  console.log(button);
+  button.submit();
+  button.disabled = true;
+
 }
 
 function revealLast(){
   var containers = document.getElementsByClassName("association container");
   var lastContainer = containers[containers.length-1];
-  var lastRow = lastContainer.lastElementChild;
-  lastRow.style.display = "block";
+  lastContainer.style.display = "block";
+  console.log(containers);
+  console.log(lastContainer);
 }
