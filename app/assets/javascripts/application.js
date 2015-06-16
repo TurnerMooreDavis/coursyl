@@ -14,8 +14,16 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
-// function 
-// window.onload
+function hideLast(){
+  var containers = document.getElementsByClassName("association container");
+  var lastContainer = containers[containers.length-1];
+  var lastRow = lastContainer.lastElementChild;
+  lastRow.style.display = "none";
+  console.log(containers);
+  console.log(lastContainer);
+  console.log(lastRow);
+}
+window.onload = hideLast;
 
 function disableButton(){
   document.getElementById("update_button").disabled = true;
