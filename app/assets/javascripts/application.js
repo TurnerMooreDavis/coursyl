@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+// function 
+// window.onload
+
+function disableButton(){
+  document.getElementById("update_button").disabled = true;
+}
