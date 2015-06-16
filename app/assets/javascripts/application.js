@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+
 function hideLast(){
   var containers = document.getElementsByClassName("association container");
   var lastContainer = containers[containers.length-1];
@@ -25,6 +26,14 @@ function hideLast(){
 }
 window.onload = hideLast;
 
+
 function disableButton(){
   document.getElementById("update_button").disabled = true;
+}
+
+function revealLast(){
+  var containers = document.getElementsByClassName("association container");
+  var lastContainer = containers[containers.length-1];
+  var lastRow = lastContainer.lastElementChild;
+  lastRow.style.display = "block";
 }
