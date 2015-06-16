@@ -19,25 +19,19 @@ function hideLast(){
   var containers = document.getElementsByClassName("association container");
   var lastContainer = containers[containers.length-1];
   lastContainer.style.display = "none";
-  console.log(containers);
-  console.log(lastContainer);
 }
+
 window.onload = hideLast;
 
 function hideMe(element){
-  alert("Ive Been Clicked!");
-  // console.log(element);
   var row = element.parentElement.parentElement.parentElement;
   row.style.display = "none";
   var span = element.parentElement;
+  var destroyMe = span.lastElementChild;
+  destroyMe.checked = true;
+  console.log(row);
   console.log(span);
-
-  var destroy = span.lastElementChild;
   console.log(destroy);
-  destroy.checked = true;
-
-
-
 }
 
 function disableButton(){
@@ -45,13 +39,52 @@ function disableButton(){
   console.log(button);
   button.submit();
   button.disabled = true;
-
 }
 
-function revealLast(){
+function revealLast(fruit) {
   var containers = document.getElementsByClassName("association container");
   var lastContainer = containers[containers.length-1];
+  console.log(fruit);
   lastContainer.style.display = "block";
-  console.log(containers);
-  console.log(lastContainer);
+  console.log("containers: "+ containers);
+  console.log("lastContainer: "+lastContainer);
+}
+
+function currentYPosition() {
+  console.log(self.pageYOffset);
+  return self.pageYOffset;
+}
+
+function elmYPosition(eID) {
+    var elm = document.getElementById(eID);
+    var y = elm.offsetTop;
+    var node = elm;
+    while (node.offsetParent && node.offsetParent != document.body) {
+        node = node.offsetParent;
+        y += node.offsetTop;
+    } return y;
+}
+
+function smoothScroll(eID) {
+    var startY = currentYPosition();
+    var stopY = elmYPosition(eID);
+    var distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY); return;
+    }
+    var speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    var step = Math.round(distance / 25);
+    var leapY = stopY > startY ? startY + step : startY - step;
+    var timer = 0;
+    if (stopY > startY) {
+        for ( var i=startY; i<stopY; i+=step ) {
+            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+            leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+        } return;
+    }
+    for ( var i=startY; i>stopY; i-=step ) {
+        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+        leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+    }
 }

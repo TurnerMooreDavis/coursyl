@@ -25,21 +25,21 @@
         <nav class="navbar smooth-nav">
           <div class="navbar-inner">
             <ul class="nav">
-              <li><%= link_to "Description", '#anchor-description' %></li>
+              <li><%= link_to "Description","#", onclick: 'smoothScroll("anchor-description");return false' %></li>
               <li class="divider-vertical"></li>
               <% if current_user && current_user.teaching?(@course) %>
-                <li><%= link_to "Students", '#anchor-students' %></li>
+                <li><%= link_to "Students","#", onclick: 'smoothScroll("anchor-students");return false' %></li>
                 <li class="divider-vertical"></li>
               <% end %>
               <% if @course.achievement_grading? %>
-                <li><%= link_to "Achievements", '#anchor-achievements' %></li>
+                <li><%= link_to "Achievements","#", onclick: 'smoothScroll("anchor-achievements");return false' %></li>
               <% else %>
-                <li><%= link_to "Assignments", '#anchor-assignments' %></li>
+                <li><%= link_to "Assignments","#", onclick: 'smoothScroll("anchor-assignments");return false' %></li>
               <% end %>
               <li class="divider-vertical"></li>
-              <li><%= link_to "Lessons", '#anchor-lessons' %></li>
+              <li><%= link_to "Lessons","#", onclick: 'smoothScroll("anchor-lessons");return false' %></li>
               <li class="divider-vertical"></li>
-              <li><%= link_to "Policies", '#anchor-policies' %></li>
+              <li><%= link_to "Policies","#", onclick: 'smoothScroll("anchor-policies");return false' %></li>
             </ul>
           </div>
         </nav>
