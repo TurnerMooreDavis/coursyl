@@ -34,11 +34,10 @@ function hideMe(element){
   console.log(destroy);
 }
 
-function disableButton(){
-  button = document.getElementById("update_button");
+function disableButton(element){
   console.log(button);
-  button.submit();
-  button.disabled = true;
+  element.submit();
+  element.disabled = true;
 }
 
 function revealLast(fruit) {
